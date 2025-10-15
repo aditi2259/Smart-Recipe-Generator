@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 // --- MOCK RECIPE DATABASE ---
-// In a real application, this would come from a backend API.
 const allRecipes = [
   {
     id: 1,
@@ -13,7 +12,7 @@ const allRecipes = [
       'Toast slices of baguette until golden brown.',
       'Top toasted baguette with the tomato mixture.',
     ],
-    cookingTime: 15, // in minutes
+    cookingTime: 15,
     difficulty: 'Easy',
     nutritionalInfo: { calories: '150 kcal', protein: '3g' },
     dietary: ['vegetarian', 'vegan'],
@@ -434,7 +433,7 @@ export default function App() {
         setDetectedIngredients([]);
         
         try {
-            const apiKey = process.env.REACT_APP_GEMINI_API_KEY || "";; // The API key is handled by the environment.
+            const apiKey = process.env.REACT_APP_GEMINI_API_KEY || "";
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
             const prompt = "Analyze the provided image and identify all visible food ingredients. Please return a single, comma-separated string of these ingredients in lowercase. For example: 'tomatoes, onion, garlic, basil'.";
 
@@ -612,8 +611,4 @@ export default function App() {
         </div>
     );
 }
-
-
-
-
 
